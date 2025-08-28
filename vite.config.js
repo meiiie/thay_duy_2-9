@@ -70,7 +70,7 @@ export default defineConfig({
 
     rollupOptions: {
       output: {
-        assetFileNames: "assets/[name].[ext]",
+        assetFileNames: "public/work-image/[name].[ext]",
       },
     },
   },

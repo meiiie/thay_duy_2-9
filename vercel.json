@@ -1,18 +1,22 @@
 {
     "routes": [
-      { "handle": "filesystem" },
       {
-        "src": "/cobay2/(.*)\\.(jpg|jpeg|png|webp|avif)$",
+        "src": "/(cobay2|timeline-images|viet-nam-icon|work-images|anhHong)/(.*)\\.(?:jpe?g|png|webp|avif|svg)$",
         "headers": { "Cache-Control": "public, max-age=31536000, immutable" }
       },
       {
-        "src": "/images/(.*)\\.(jpg|jpeg|png|webp|avif|svg)$",
+        "src": "/(.*)\\.(?:jpe?g|png|webp|avif|svg|ico)$",
         "headers": { "Cache-Control": "public, max-age=31536000, immutable" }
       },
       {
-        "src": "/(.*)\\.(css|js)$",
+        "src": "/(.*)\\.(?:css|js)$",
         "headers": { "Cache-Control": "public, max-age=31536000, immutable" }
-      }
+      },
+      {
+        "src": "/(sitemap\\.xml|image-sitemap\\.xml|robots\\.txt|manifest\\.json)$",
+        "headers": { "Cache-Control": "public, max-age=600" }
+      },
+      { "handle": "filesystem" }
     ]
   }
   

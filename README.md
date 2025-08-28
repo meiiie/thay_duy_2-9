@@ -173,7 +173,7 @@ thay_duy_2-9/
 │   ├── cobay2/             # Flag animation images
 │   ├── viet-nam-icon/      # Favicon & app icons
 │   └── anhHong/            # Additional images
-├── 📁 assets/                   # Asset files
+├── 📁 public/work-image/        # Work section images
 ├── 📁 node_modules/             # Dependencies (gitignored)
 ├── package.json              # Project dependencies
 ├── vite.config.js            # Vite configuration

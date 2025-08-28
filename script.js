@@ -8,6 +8,36 @@ import { initTimelineSection } from "./timeline-section.js";
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(CustomEase, SplitText);
   
+  // Auto scroll to top on page refresh
+  window.scrollTo(0, 0);
+  
+  // Force scroll to top for all browsers
+  if (window.scrollY !== 0) {
+    window.scrollTo(0, 0);
+  }
+  
+  // Additional scroll to top for mobile devices
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  
+  // Ensure scroll to top on page load/refresh
+  const ensureScrollToTop = () => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+  
+  // Multiple attempts to ensure scroll to top
+  ensureScrollToTop();
+  setTimeout(ensureScrollToTop, 100);
+  setTimeout(ensureScrollToTop, 500);
+  
+  // Reset scroll position before page refresh
+  window.addEventListener('beforeunload', () => {
+    window.scrollTo(0, 0);
+  });
+  
   document.body.classList.add('scroll-locked');
   
   const preventScroll = (e) => {
