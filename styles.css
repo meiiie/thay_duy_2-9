@@ -1250,34 +1250,34 @@ body.hero-visible .scroll-indicator {
 
 /* Background images for history cards */
 #history-card-5 .card-inner {
-  background-image: url("public/img1.jpg");
+  background-image: url("/img1.jpg");
 }
 #history-card-6 .card-inner {
-  background-image: url("public/badinh.jpg");
+  background-image: url("/badinh.jpg");
 }
 #history-card-7 .card-inner {
-  background-image: url("public/an-mung-giai-phong.jpg");
+  background-image: url("/an-mung-giai-phong.jpg");
 }
 #history-card-8 .card-inner {
-  background-image: url("public/dien-bien-phu.jpg");
+  background-image: url("/dien-bien-phu.jpg");
 }
 #history-card-9 .card-inner {
-  background-image: url("public/phat-trien-kinh-te.jpg");
+  background-image: url("/phat-trien-kinh-te.jpg");
 }
 #history-card-10 .card-inner {
-  background-image: url("public/tuong-dai-liet-si.jpg");
+  background-image: url("/tuong-dai-liet-si.jpg");
 }
 #history-card-11 .card-inner {
-  background-image: url("public/155.jpg");
+  background-image: url("/155.jpg");
 }
 #history-card-12 .card-inner {
-  background-image: url("public/thanh-nien-khoi-nghiep.jpg");
+  background-image: url("/thanh-nien-khoi-nghiep.jpg");
 }
 #history-card-13 .card-inner {
-  background-image: url("public/122.jpg");
+  background-image: url("/122.jpg");
 }
 #history-card-14 .card-inner {
-  background-image: url("public/126.jpg");
+  background-image: url("/126.jpg");
 }
 
 #history-card-5 .card-inner > *,

@@ -122,49 +122,49 @@ document.addEventListener("DOMContentLoaded", async () => {
         title: "Tuyên Ngôn Độc Lập 2/9/1945",
         date: "2 tháng 9, 1945",
         description: "Bác Hồ đọc Tuyên ngôn Độc lập tại Quảng trường Ba Đình, Hà Nội, tuyên bố sự ra đời của nước Việt Nam Dân chủ Cộng hòa. Đây là khoảnh khắc lịch sử vĩ đại, đánh dấu việc Việt Nam thoát khỏi ách đô hộ của thực dân Pháp và phát xít Nhật.",
-        image: "public/work-images/img1.jpg"
+        image: "/work-images/img1.jpg"
       },
       {
         id: 2,
         title: "Quân Đội Nhân Dân Việt Nam",
         date: "22 tháng 12, 1944",
         description: "Ngày thành lập Quân đội Nhân dân Việt Nam, tiền thân là Đội Việt Nam Tuyên truyền Giải phóng quân. Đây là lực lượng vũ trang cách mạng đầu tiên của dân tộc Việt Nam do Đảng Cộng sản Việt Nam và Chủ tịch Hồ Chí Minh sáng lập.",
-        image: "public/work-images/img2.jpg"
+        image: "/work-images/img2.jpg"
       },
       {
         id: 3,
         title: "Cuộc Kháng Chiến Chống Pháp",
         date: "19 tháng 12, 1946",
         description: "Cuộc kháng chiến toàn quốc chống thực dân Pháp bắt đầu, kéo dài 9 năm (1946-1954). Cuộc kháng chiến này đã kết thúc bằng chiến thắng Điện Biên Phủ lừng lẫy, buộc Pháp phải ký Hiệp định Genève và rút khỏi Đông Dương.",
-        image: "public/work-images/img3.jpg"
+        image: "/work-images/img3.jpg"
       },
       {
         id: 4,
         title: "Chiến Thắng Điện Biên Phủ",
         date: "7 tháng 5, 1954",
         description: "Chiến thắng Điện Biên Phủ - 'Điện Biên Phủ chấn động địa cầu', đánh bại hoàn toàn Tập đoàn cứ điểm Điện Biên Phủ của Pháp. Đây là chiến thắng có ý nghĩa quyết định làm thay đổi cục diện chính trị toàn thế giới.",
-        image: "public/work-images/img4.jpg"
+        image: "/work-images/img4.jpg"
       },
       {
         id: 5,
         title: "Giải Phóng Miền Nam",
         date: "30 tháng 4, 1975",
         description: "Hoàn thành sự nghiệp giải phóng miền Nam, thống nhất đất nước. Sự kiện lịch sử này đã kết thúc cuộc chiến tranh kéo dài và mở ra kỷ nguyên mới của hòa bình, thống nhất và xây dựng đất nước.",
-        image: "public/work-images/img5.jpg"
+        image: "/work-images/img5.jpg"
       },
       {
         id: 6,
         title: "Đổi Mới và Phát Triển",
         date: "Từ năm 1986",
         description: "Chính sách Đổi Mới được ban hành, mở ra kỷ nguyên phát triển kinh tế - xã hội mới. Việt Nam từ một nước nghèo nàn, lạc hậu đã trở thành nước có thu nhập trung bình và hội nhập sâu rộng với thế giới.",
-        image: "public/work-images/img6.jpg"
+        image: "/work-images/img6.jpg"
       },
       {
         id: 7,
         title: "Việt Nam Hiện Đại",
         date: "Thế kỷ 21",
         description: "Việt Nam hôm nay đã trở thành một quốc gia năng động, hiện đại với nền kinh tế phát triển mạnh mẽ. Đất nước ngày càng khẳng định vị thế trên trường quốc tế và hướng tới mục tiêu trở thành nước phát triển vào năm 2045.",
-        image: "public/work-images/img7.jpg"
+        image: "/work-images/img7.jpg"
       }
     ];
 
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const loadImage = (num) =>
       new Promise((resolve, reject) => {
         const texture = new THREE.TextureLoader().load(
-          `public/work-images/img${num}.jpg`,
+          `/work-images/img${num}.jpg`,
           (loadedTexture) => {
             Object.assign(loadedTexture, {
               generateMipmaps: true,
