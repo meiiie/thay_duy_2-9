@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
         gestureDirection: 'vertical',
         smooth: true,
         mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
+        smoothTouch: true,  // Bật làm mượt cho cảm ứng
+        touchMultiplier: 1,   // Giảm độ nhạy về mức chuẩn
         infinite: false,
       });
       

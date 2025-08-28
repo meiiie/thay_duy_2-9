@@ -24,38 +24,63 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   position: relative;
+  
+  /* Tối ưu touch behavior cho mobile */
+  overscroll-behavior: none; /* Ngăn các hiệu ứng cuộn ngoài lề */
+  touch-action: pan-y; /* Chỉ cho phép hành vi vuốt theo chiều dọc */
 }
 
 /* Khóa scroll khi animation đang chạy */
 body.scroll-locked {
   overflow: hidden;
+  
+  /* Tối ưu touch behavior khi scroll bị lock */
+  touch-action: none; /* Không cho phép touch khi scroll bị lock */
 }
 
 /* Hero section visible but scroll locked */
 body.hero-visible {
   overflow: hidden;
+  
+  /* Tối ưu touch behavior khi hero visible */
+  touch-action: none; /* Không cho phép touch khi hero visible */
 }
 
 /* Scroll unlocked - user can now scroll */
 body.scroll-unlocked {
   overflow-x: hidden;
   overflow-y: auto;
-}
-
-/* Hero section visible but scroll locked */
-body.hero-visible {
-  overflow: hidden;
-}
-
-/* Scroll unlocked - user can now scroll */
-body.scroll-unlocked {
-  overflow-x: hidden;
-  overflow-y: auto;
+  
+  /* Tối ưu touch behavior khi scroll được unlock */
+  touch-action: pan-y; /* Chỉ cho phép hành vi vuốt theo chiều dọc */
+  overscroll-behavior: none; /* Ngăn các hiệu ứng cuộn ngoài lề */
 }
 
 /* Smooth scroll cho body */
 html {
   scroll-behavior: smooth;
+  
+  /* Tối ưu touch behavior cho mobile */
+  overscroll-behavior: none; /* Ngăn các hiệu ứng cuộn ngoài lề */
+  touch-action: pan-y; /* Chỉ cho phép hành vi vuốt theo chiều dọc */
+}
+
+/* Mobile-specific touch optimization */
+@media (max-width: 768px) {
+  body, html {
+    /* Tối ưu touch behavior cho mobile */
+    overscroll-behavior: none;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling trên iOS */
+  }
+  
+  /* Tối ưu touch cho các section chính */
+  .timeline-section,
+  .finale-section,
+  .work-section {
+    touch-action: pan-y;
+    overscroll-behavior: none;
+  }
 }
 
 /* Animated background effect */
