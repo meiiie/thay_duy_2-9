@@ -30,14 +30,17 @@ export class HeaderFooterModule {
         <div class="header__middle">
           <div class="header__mflex">
             <div class="header-left">
-              <a href="#" title="Đoàn Thanh niên Cộng sản Hồ Chí Minh" class="header-doan-logo">
-                <img src="/Logo-Doan-Thanh-NIen-Cong-San-Ho-Chi-Minh-1.webp" alt="Logo Đoàn Thanh niên Cộng sản Hồ Chí Minh">
-              </a>
-              <h1>
+             <h1>
                 <a href="/" title="" class="header-80namkyniem">
                   <img src="/header-80namkyniem.svg" alt="80 Năm Kỷ Niệm">
                 </a>
               </h1>
+              <a href="#" title="Đoàn Thanh niên Cộng sản Hồ Chí Minh" class="header-doan-logo">
+                <img src="/Logo-Doan-Thanh-NIen-Cong-San-Ho-Chi-Minh-1.webp" alt="Logo Đoàn Thanh niên Cộng sản Hồ Chí Minh">
+              </a>
+              <a href="#" title="Khoa Công Nghệ Thông Tin Trường Đại Học Hàng Hải" class="header-doan-logo">
+                <img src="/logo-khoa.png" alt="Logo Khoa Công Nghệ Thông Tin Trường Đại Học Hàng Hải">
+              </a>
             </div>
           </div>
         </div>
@@ -55,7 +58,7 @@ export class HeaderFooterModule {
       <footer class="footer">
         <div class="footer__container">
           <div class="item item-1">
-            <h4>Trường Đại học Hàng hải Việt Nam</h4>
+            <h4>Liên chi Đoàn TNCS Hồ Chí Minh khoa CNTT - Trường ĐH Hàng hải Việt Nam.</h4>
             <div class="address">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12,2C8.13,2 5,5.13 5,9c0,5.25 7,13 7,13s7-7.75 7-13C19,5.13 15.87,2 12,2zM12,11.5c-1.38,0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5s2.5,1.12 2.5,2.5S13.38,11.5 12,11.5z"/>
