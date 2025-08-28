@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      gsa:
-        specifier: ^0.0.0
-        version: 0.0.0
       gsap:
         specifier: ^3.13.0
         version: 3.13.0
@@ -301,9 +298,6 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
-  gsa@0.0.0:
-    resolution: {integrity: sha512-NeSPBLtyeE0jUO1wQtI6rbgnPmUVjqi/5dOrV7xNWVy0fnUlGXOCJs3XgwN13rvasbEo0bsj7obacN+vfbFz+g==}
-
   gsap@3.13.0:
     resolution: {integrity: sha512-QL7MJ2WMjm1PHWsoFrAQH/J8wUeqZvMtHO58qdekHpCfhvhSL4gSiz6vJf5EeMP0LOn3ZCprL2ki/gjED8ghVw==}
 
@@ -567,8 +561,6 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
-
-  gsa@0.0.0: {}
 
   gsap@3.13.0: {}
 
