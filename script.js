@@ -8,35 +8,29 @@ import { initTimelineSection } from "./timeline-section.js";
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(CustomEase, SplitText);
   
-  // Auto scroll to top on page refresh
-  window.scrollTo(0, 0);
+  // Handle F5 key press - reload page completely instead of scroll to top
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
+      e.preventDefault();
+      window.location.reload();
+      return;
+    }
+  });
   
-  // Force scroll to top for all browsers
-  if (window.scrollY !== 0) {
-    window.scrollTo(0, 0);
-  }
+  // Handle browser refresh button - allow normal behavior
+  window.addEventListener('beforeunload', () => {
+    // Don't interfere with normal page refresh
+  });
   
-  // Additional scroll to top for mobile devices
+  // Set scroll restoration to manual to prevent browser from restoring scroll position
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
   
-  // Ensure scroll to top on page load/refresh
-  const ensureScrollToTop = () => {
+  // Simple scroll to top for initial load (not refresh)
+  if (performance.navigation.type === 0) { // 0 = navigation, 1 = reload, 2 = back/forward
     window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  };
-  
-  // Multiple attempts to ensure scroll to top
-  ensureScrollToTop();
-  setTimeout(ensureScrollToTop, 100);
-  setTimeout(ensureScrollToTop, 500);
-  
-  // Reset scroll position before page refresh
-  window.addEventListener('beforeunload', () => {
-    window.scrollTo(0, 0);
-  });
+  }
   
   document.body.classList.add('scroll-locked');
   
