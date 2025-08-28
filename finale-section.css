@@ -406,8 +406,7 @@
   }
   
   .finale-hero-img {
-    min-height: 180px;
-    max-height: 250px;
+    min-height: 200px;
   }
   
   .finale-hero-img img {
@@ -479,12 +478,11 @@
   .finale-hero-img-container {
     width: 85%;
     top: 48%;
-    transform: translate(-50%, -50%) scale(0.85);
+    transform: translate(-50%, -50%) scale(0.75);
   }
   
   .finale-hero-img {
-    min-height: 160px;
-    max-height: 220px;
+    min-height: 180px;
   }
   
   .finale-hero-img img {
@@ -502,8 +500,7 @@
   }
   
   .finale-hero-img {
-    min-height: 140px;
-    max-height: 200px;
+    min-height: 180px;
   }
   
   .finale-hero-img img {
@@ -521,8 +518,7 @@
   }
   
   .finale-hero-img {
-    min-height: 120px;
-    max-height: 180px;
+    min-height: 180px;
   }
   
   .finale-hero-img img {

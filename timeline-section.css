@@ -364,3 +364,129 @@
     min-height: 100vh;
   }
 }
+
+/* ===== THEME 2/9: chữ vàng, nền đỏ (override) ===== */
+
+/* 1) Màu chủ đạo */
+:root {
+  --timeline-vietnam-red: #DA251D;   /* đỏ quốc kỳ */
+  --timeline-vietnam-yellow: #FFD700;/* vàng sao (dễ đọc hơn #FFFF00) */
+  --timeline-vietnam-gold: #FFD700;
+  --timeline-dark-red: #A61B17;
+}
+
+/* 2) NỀN SECTION → đỏ thuần + radial nhẹ để đỡ “phẳng” */
+.timeline-section {
+  background:
+    radial-gradient(120vmax 120vmax at 10% -10%, #b61b16 0%, #a31714 35%, #8f1412 60%, #7a100f 80%, #6a0d0d 100%),
+    var(--timeline-vietnam-red);
+  color: var(--timeline-vietnam-yellow);
+}
+
+/* 3) Ảnh nền phía sau: giảm bão hoà + phủ đỏ mờ để chữ vàng nổi hơn */
+.timeline-bg-img {
+  /* scale do JS điều khiển, giữ nguyên */
+}
+.timeline-bg-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.45)),
+    linear-gradient(0deg, rgba(218,37,29,0.18), rgba(218,37,29,0.18));
+  pointer-events: none;
+}
+.timeline-bg-img img {
+  filter: saturate(0.9) contrast(1.02) brightness(0.98);
+}
+
+/* 4) Dải tiêu đề bên trái (h1): chữ vàng, nền đỏ trong suốt + “tấm đệm” tinh tế */
+.timeline-titles h1 {
+  color: var(--timeline-vietnam-yellow);
+  background: rgba(128, 0, 0, 0.28);                 /* đỏ thẫm mờ */
+  border-color: rgba(255, 215, 0, 0.35);             /* viền vàng nhạt */
+  text-shadow:
+    0 2px 0 rgba(0,0,0,0.4),
+    0 10px 26px rgba(0,0,0,0.45),
+    0 0 28px rgba(255, 215, 0, 0.25);                /* ánh vàng nhẹ */
+}
+.timeline-titles h1::before {
+  content: "";
+  position: absolute;
+  inset: -10px -16px;
+  border-radius: 20px;
+  background:
+    radial-gradient(120% 120% at 0% 0%, rgba(0,0,0,0.35), rgba(0,0,0,0.18)),
+    linear-gradient(0deg, rgba(165, 0, 0, 0.22), rgba(165, 0, 0, 0.22));
+  box-shadow:
+    0 12px 34px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(255,255,255,0.05) inset;
+  z-index: -1;
+  pointer-events: none;
+}
+.timeline-titles h1::after {
+  content: "";
+  position: absolute;
+  inset: -10px -16px;
+  border-radius: 20px;
+  box-shadow: 0 0 0 1px rgba(255,215,0,0.2);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* 5) Dòng chéo trang trí → ánh vàng */
+.timeline-titles-container::before,
+.timeline-titles-container::after {
+  background: linear-gradient(90deg,
+    rgba(255,215,0,0),
+    rgba(255,215,0,0.95),
+    rgba(255,215,0,0));
+  filter: drop-shadow(0 0 14px rgba(255,215,0,0.55));
+}
+
+/* 6) Header “Kỷ niệm 80 năm...” → nền đỏ, chữ vàng */
+.timeline-header p {
+  background: linear-gradient(90deg, #ffdd55, #ffd700);
+  color: #3a2200;                                   /* chữ nâu đậm cho độ đọc */
+  border: 2px solid rgba(255,215,0,0.6);
+  box-shadow: 0 12px 28px rgba(255, 215, 0, 0.35);
+}
+
+/* 7) Intro text 2 vế → chữ vàng, viền vàng, nền đỏ thẫm mờ */
+.timeline-intro-text p {
+  color: var(--timeline-vietnam-yellow);
+  background: rgba(128, 0, 0, 0.38);
+  border-color: var(--timeline-vietnam-gold);
+  text-shadow:
+    0 2px 0 rgba(0,0,0,0.45),
+    0 0 22px rgba(255, 215, 0, 0.28);
+}
+
+/* 8) Cụm ảnh bên phải: viền vàng nhạt, bóng đỏ nhẹ để hợp chủ đề */
+.timeline-img {
+  border-color: rgba(255,215,0,0.35);
+  box-shadow:
+    0 10px 36px rgba(0,0,0,0.35),
+    0 8px 40px rgba(218,37,29,0.25);
+}
+.timeline-img img {
+  outline: 1.5px solid rgba(255,215,0,0.18);
+  box-shadow:
+    0 0 0 1px rgba(255, 215, 0, 0.08) inset,
+    0 18px 64px rgba(0,0,0,0.55),
+    0 8px 36px rgba(218,37,29,0.20);
+}
+
+/* 9) FIX “màn rộng ảnh bị đẩy quá bên phải” – canh theo content width */
+@media (min-width: 1366px) {
+  .timeline-images { right: max(72px, calc((100vw - 1280px)/2)); width: min(28vw, 620px); }
+  .timeline-titles { left: max(36px, calc((100vw - 1280px)/2 - 36px)); }
+}
+@media (min-width: 1600px) {
+  .timeline-images { right: max(92px, calc((100vw - 1400px)/2)); width: min(26vw, 660px); }
+  .timeline-titles { left: max(40px, calc((100vw - 1400px)/2 - 40px)); }
+}
+@media (min-width: 1920px) {
+  .timeline-images { right: max(120px, calc((100vw - 1500px)/2)); width: min(24vw, 700px); }
+  .timeline-titles { left: max(48px, calc((100vw - 1500px)/2 - 48px)); }
+}

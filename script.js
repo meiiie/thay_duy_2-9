@@ -1,12 +1,42 @@
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { SplitText } from "gsap/SplitText";
+import Lenis from "lenis";
 import { initFinaleSection } from "./finale-section.js";
 import { headerFooterModule } from "./header-footer-module.js";
 import { initTimelineSection } from "./timeline-section.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(CustomEase, SplitText);
+  
+  // Initialize Lenis for smooth scrolling if available
+  try {
+    if (!window.lenis) {
+      window.lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+      });
+      
+      window.lenis.scrollTo(0, { immediate: true });
+      
+      // Start Lenis animation loop
+      function raf(time) {
+        window.lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    }
+  } catch (error) {
+    console.log('Lenis not available, using default scroll behavior');
+    window.scrollTo(0, 0);
+  }
   
   // Handle F5 key press - reload page completely instead of scroll to top
   document.addEventListener('keydown', (e) => {
@@ -17,19 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   
-  // Handle browser refresh button - allow normal behavior
+  // Handle browser refresh button - force scroll to top before unload
   window.addEventListener('beforeunload', () => {
-    // Don't interfere with normal page refresh
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
   });
   
   // Set scroll restoration to manual to prevent browser from restoring scroll position
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
-  }
-  
-  // Simple scroll to top for initial load (not refresh)
-  if (performance.navigation.type === 0) { // 0 = navigation, 1 = reload, 2 = back/forward
-    window.scrollTo(0, 0);
   }
   
   document.body.classList.add('scroll-locked');
@@ -345,5 +374,3 @@ document.addEventListener("DOMContentLoaded", () => {
       
     }, [], 8.0);
 });
-
-

@@ -53,7 +53,7 @@ const timelineItems = [
   },
   { 
     name: "Hiện Đại Hóa 2010s", 
-    img: "/timeline-images/img_9.jpg",
+    img: "/timeline-images/img_9.png",
     description: "Công nghiệp hóa, hiện đại hóa"
   },
   { 
@@ -177,7 +177,7 @@ export function initTimelineSection() {
       }
       return true; // Enable pin spacing on larger screens
     },
-    scrub: 1,
+    scrub: window.lenis ? 1 : 0.5, // Smoother scrub when Lenis is available
     onUpdate: (self) => {
       const progress = self.progress;
 
@@ -346,9 +346,20 @@ export function initTimelineSection() {
         });
       }
     },
-  });
-
+    });
   
+  // Ensure ScrollTrigger is properly initialized for timeline
+  ScrollTrigger.config({
+    ignoreMobileResize: true,
+    autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
+  });
+  
+  // Refresh ScrollTrigger after a short delay to ensure everything is loaded
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 100);
+  
+   
 }
 
 // Cleanup function

@@ -13,15 +13,38 @@ export function initFinaleSection() {
   if (window.lenis) {
     lenis = window.lenis;
   } else {
-    lenis = new Lenis();
-    window.lenis = lenis;
+    try {
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+      });
+      window.lenis = lenis;
+    } catch (error) {
+      console.log('Lenis initialization failed, using default scroll');
+      lenis = null;
+    }
   }
   
-  lenis.on("scroll", ScrollTrigger.update);
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
-  gsap.ticker.lagSmoothing(0);
+  // Only setup Lenis if it's available
+  if (lenis) {
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+  } else {
+    // Fallback to standard scroll behavior
+    ScrollTrigger.addEventListener("refresh", () => {
+      ScrollTrigger.refresh();
+    });
+  }
 
   const finaleHeader = document.querySelector(".finale-header");
   const finaleHeroImg = document.querySelector(".finale-hero-img");
@@ -106,7 +129,7 @@ export function initFinaleSection() {
       end: `+=${window.innerHeight * 10}px`,
       pin: true,
       pinSpacing: true,
-      scrub: 1,
+      scrub: lenis ? 1 : 0.5, // Smoother scrub when Lenis is available
       onUpdate: (self) => {
         const progress = self.progress;
 
@@ -170,5 +193,16 @@ export function initFinaleSection() {
     ScrollTrigger.refresh();
   });
   
+  // Ensure ScrollTrigger is properly initialized
+  ScrollTrigger.config({
+    ignoreMobileResize: true,
+    autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
+  });
   
+  // Refresh ScrollTrigger after a short delay to ensure everything is loaded
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 100);
+  
+
 }
