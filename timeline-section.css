@@ -1,0 +1,366 @@
+/* Timeline Section Styles - Isolated from main styles */
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Timeline Section Variables */
+:root {
+  --timeline-vietnam-red: #DA251D;
+  --timeline-vietnam-yellow: #FFFF00;
+  --timeline-vietnam-gold: #FFD700;
+  --timeline-dark-red: #B22222;
+  --timeline-cream: #FFF8DC;
+}
+
+/* Timeline Section Base Styles */
+.timeline-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Be Vietnam Pro", "Times New Roman", "Arial", sans-serif;
+  z-index: 5;
+  background: #fdfbf5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.timeline-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.timeline-section h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.timeline-section p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.timeline-section .subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-top: 1rem;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+/* Timeline Intro Text */
+.timeline-intro-text-wrapper {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.timeline-intro-text {
+  flex: 1;
+  position: relative;
+  will-change: transform;
+}
+
+.timeline-intro-text:nth-child(1) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.timeline-intro-text p {
+  color: #FFFFFF;
+  font-size: 2rem;
+  font-weight: 800;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  border: 2px solid var(--timeline-vietnam-red);
+  backdrop-filter: blur(10px);
+}
+
+/* Timeline Background Image */
+.timeline-bg-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform: scale(0);
+  will-change: transform;
+}
+
+.timeline-bg-img img {
+  transform: scale(1.5);
+  will-change: transform;
+}
+
+/* Timeline Titles Container */
+.timeline-titles-container {
+  position: absolute;
+  top: 0;
+  left: 15vw;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  clip-path: polygon(
+    50vh 0px,
+    0px 50%,
+    50vh 100%,
+    100% calc(100% + 100vh),
+    100% -100vh
+  );
+  --before-opacity: 0;
+  --after-opacity: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-titles-container::before,
+.timeline-titles-container::after {
+  content: "";
+  position: absolute;
+  width: 100vh;
+  height: 2.5px;
+  background: #FFFFFF;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.timeline-titles-container::before {
+  top: 0;
+  left: 0;
+  transform: rotate(-45deg) translate(-7rem);
+  opacity: var(--before-opacity);
+}
+
+.timeline-titles-container::after {
+  bottom: 0;
+  left: 0;
+  transform: rotate(45deg) translate(-7rem);
+  opacity: var(--after-opacity);
+}
+
+/* Timeline Titles */
+.timeline-titles {
+  position: relative;
+  left: 15%;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  transform: translateY(100%);
+  z-index: 2;
+}
+
+.timeline-titles h1 {
+  color: #FFFFFF;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-shadow: 
+    3px 3px 6px rgba(0, 0, 0, 0.9),
+    0 0 25px rgba(255, 255, 255, 0.8),
+    0 0 35px rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  text-align: center;
+}
+
+/* Timeline Images */
+.timeline-images {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  min-width: 300px;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.timeline-img {
+  position: absolute;
+  width: 200px;
+  height: 150px;
+  will-change: transform;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--timeline-vietnam-red);
+}
+
+/* Timeline Header */
+.timeline-header {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translateY(-50%);
+  color: var(--timeline-vietnam-yellow);
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  opacity: 0;
+  padding: 20px;
+}
+
+.timeline-header p {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 
+    3px 3px 6px rgba(0, 0, 0, 0.9),
+    0 0 25px rgba(255, 255, 0, 0.8),
+    0 0 35px rgba(255, 255, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  border: 2px solid var(--timeline-vietnam-yellow);
+  backdrop-filter: blur(15px);
+  position: relative;
+  white-space: nowrap;
+  overflow: visible;
+  font-family: "Times New Roman", "Georgia", serif;
+  color: var(--timeline-vietnam-yellow);
+}
+
+/* Responsive Design for Timeline Section */
+@media (max-width: 1000px) {
+  .timeline-section h1 {
+    font-size: 2rem;
+  }
+
+  .timeline-titles-container {
+    clip-path: none;
+  }
+
+  .timeline-titles-container::before,
+  .timeline-titles-container::after {
+    display: none;
+  }
+
+  .timeline-titles {
+    left: 0;
+  }
+
+  .timeline-header {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-section {
+    height: 100vh;
+    min-height: 100vh;
+  }
+  
+  .timeline-titles h1 {
+    font-size: 1.8rem;
+  }
+  
+  .timeline-img {
+    width: 150px;
+    height: 112px;
+  }
+  
+  /* Reduce gaps between timeline items on mobile */
+  .timeline-titles {
+    gap: 3rem;
+  }
+  
+  /* Optimize background image scaling for mobile */
+  .timeline-bg-img {
+    transform: scale(0.8);
+  }
+  
+  .timeline-bg-img img {
+    transform: scale(1.2);
+  }
+  
+  /* Ensure containers take full height */
+  .timeline-titles-container {
+    min-height: 100vh;
+  }
+  
+  .timeline-images {
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-section {
+    height: 100vh;
+    min-height: 100vh;
+  }
+  
+  .timeline-titles h1 {
+    font-size: 1.5rem;
+  }
+  
+  .timeline-img {
+    width: 120px;
+    height: 90px;
+  }
+  
+  /* Further reduce gaps on small mobile */
+  .timeline-titles {
+    gap: 2rem;
+  }
+  
+  /* Optimize background image scaling for small mobile */
+  .timeline-bg-img {
+    transform: scale(0.7);
+  }
+  
+  .timeline-bg-img img {
+    transform: scale(1.3);
+  }
+  
+  /* Ensure containers take full height */
+  .timeline-titles-container {
+    min-height: 100vh;
+  }
+  
+  .timeline-images {
+    min-height: 100vh;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 360px) {
+  .timeline-section {
+    height: 100vh;
+    min-height: 100vh;
+  }
+  
+  .timeline-titles {
+    gap: 1.5rem;
+  }
+  
+  .timeline-titles h1 {
+    font-size: 1.3rem;
+  }
+  
+  /* Ensure containers take full height */
+  .timeline-titles-container {
+    min-height: 100vh;
+  }
+  
+  .timeline-images {
+    min-height: 100vh;
+  }
+}

@@ -1,0 +1,212 @@
+/* Header & Footer Styles */
+
+/* Header */
+.header.fixed_header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: linear-gradient(180deg, 
+    rgba(210, 0, 0, 0.95) 0%, 
+    rgba(210, 0, 0, 0.8) 30%, 
+    rgba(210, 0, 0, 0.6) 60%, 
+    rgba(210, 0, 0, 0.3) 85%, 
+    rgba(210, 0, 0, 0) 100%);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  /* Ẩn header trong thời gian animation */
+  opacity: 0;
+  transform: translateY(-100%);
+  /* Header overlay hoàn toàn, không chiếm không gian */
+  pointer-events: none;
+}
+
+/* Hiện header sau khi animation hoàn thành */
+.header.fixed_header.show {
+  opacity: 1;
+  transform: translateY(0);
+  /* Cho phép tương tác khi hiện */
+  pointer-events: auto;
+}
+
+.header__middle {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header__mflex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-left h1 {
+  margin: 0;
+}
+
+.header-80namkyniem {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.header-80namkyniem img {
+  height: 80px;
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Logo Đoàn Thanh niên */
+.header-doan-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.header-doan-logo img {
+  height: 80px;
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+.header-doan-logo:hover img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(135deg, #D20000 0%, #8B0000 100%);
+  color: white;
+  padding: 40px 0 20px;
+  margin-top: 0px;
+  position: relative;
+  z-index: 10;
+  /* Ẩn footer trong thời gian animation */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.5s ease;
+}
+
+/* Hiện footer sau khi animation hoàn thành */
+.footer.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer .item h4 {
+  color: #FFD700;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.footer .item p {
+  margin: 8px 0;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.footer .sapo {
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.footer .address,
+.footer .email {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.footer .address svg,
+.footer .email svg {
+  flex-shrink: 0;
+}
+
+.footer .item a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  opacity: 0.9;
+}
+
+.footer .item a:hover {
+  color: #FFD700;
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header.fixed_header {
+    height: 80px;
+  }
+  
+  .header-80namkyniem img {
+    height: 45px;
+  }
+  
+  .header-doan-logo img {
+    height: 45px;
+  }
+  
+  .header-left {
+    gap: 15px;
+  }
+  
+  .footer__container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .footer {
+    padding: 30px 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__middle {
+    padding: 0 15px;
+  }
+  
+  .header-80namkyniem img {
+    height: 40px;
+  }
+  
+  .header-doan-logo img {
+    height: 40px;
+  }
+  
+  .header-left {
+    gap: 12px;
+  }
+  
+  .footer__container {
+    padding: 0 15px;
+  }
+}

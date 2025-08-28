@@ -1,0 +1,480 @@
+/* Finale Section Styles - Isolated from main styles */
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Be+Vietnam+Pro:ital,wght@100;200;300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Finale Section Variables */
+:root {
+  --finale-fg: #241910;
+  --finale-bg: #fefbf4;
+  --finale-red: #D20000;
+  --finale-gold: #FFD700;
+  --finale-dark-red: #8B0000;
+}
+
+/* Finale Section Base Styles */
+.finale-section {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+/* Enhanced patriotic animations for finale */
+@keyframes finaleGlow {
+  0%, 100% { 
+    text-shadow: 
+      3px 3px 6px rgba(0, 0, 0, 0.6),
+      0 0 25px rgba(255, 215, 0, 0.8),
+      0 0 35px rgba(255, 215, 0, 0.6);
+  }
+  50% { 
+    text-shadow: 
+      3px 3px 6px rgba(0, 0, 0, 0.6),
+      0 0 35px rgba(255, 215, 0, 1),
+      0 0 45px rgba(255, 215, 0, 0.8),
+      0 0 55px rgba(255, 215, 0, 0.6);
+  }
+}
+
+@keyframes finalePulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.finale-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.finale-section h1 {
+  font-family: "Host Grotesk";
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.finale-section p {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.finale-section a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--finale-fg);
+}
+
+.finale-section .btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+}
+
+.finale-section .btn.primary {
+  background-color: var(--finale-bg);
+}
+
+.finale-section .btn.primary a {
+  color: var(--finale-fg);
+}
+
+.finale-section .btn.secondary {
+  background-color: var(--finale-fg);
+}
+
+.finale-section .btn.secondary a {
+  color: var(--finale-bg);
+}
+
+/* Finale Hero Section */
+.finale-hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, 
+    rgba(210, 0, 0, 0.1) 0%, 
+    rgba(139, 0, 0, 0.05) 50%, 
+    rgba(210, 0, 0, 0.1) 100%);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+.finale-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.finale-hero-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  padding: 0.5rem 0;
+}
+
+.finale-header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  color: var(--finale-fg);
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.finale-header h1 {
+  width: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.finale-header p {
+  opacity: 0.35;
+}
+
+.finale-client-logos {
+  width: 30%;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.finale-client-logos .finale-client-logo {
+  flex: 1;
+}
+
+.finale-client-logos .finale-client-logo img {
+  object-fit: contain;
+}
+
+.finale-hero-img-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.finale-hero-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(1000px);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.finale-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Finale Patriotic Content Styles */
+.finale-patriotic-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.finale-main-text {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 215, 0, 0.4);
+  line-height: 1.1;
+  transition: all 0.3s ease;
+}
+
+.finale-celebration-text {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  color: var(--finale-gold);
+  text-shadow:
+    3px 3px 6px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(255, 215, 0, 0.8),
+    0 0 35px rgba(255, 215, 0, 0.6),
+    0 0 45px rgba(255, 215, 0, 0.4);
+  line-height: 0.95;
+  letter-spacing: -1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: all 0.3s ease;
+  animation: finaleGlow 3s ease-in-out infinite;
+}
+
+.finale-celebration-text:hover {
+  animation: finaleGlow 1s ease-in-out infinite;
+  transform: scale(1.02);
+}
+
+.finale-date-text {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow:
+    3px 3px 6px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(255, 255, 255, 0.3);
+  line-height: 0.85;
+  letter-spacing: -2px;
+}
+
+.finale-independence-subtitle {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.8rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow:
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 30px rgba(255, 255, 255, 0.4);
+  margin: 1.5rem 0 0.5rem 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.finale-patriotic-message {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.finale-unity-message {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow:
+    3px 3px 6px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(255, 255, 255, 0.7),
+    0 0 35px rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.finale-heritage-message {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1.4rem);
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow:
+    2px 2px 4px rgba(0, 0, 0, 0.7),
+    0 0 15px rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Finale Outro Section */
+.finale-outro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2rem 0 2rem;
+  background: #fdfbf5;
+  color: var(--finale-fg);
+  gap: 1rem;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.finale-outro h1 {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #d32f2f;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+.finale-outro p {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  color: #333333;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* Responsive Design for Finale Section */
+@media (max-width: 768px) {
+  .finale-hero-content {
+    top: 42%;
+  }
+
+  .finale-header {
+    width: calc(100% - 2rem);
+    padding: 1rem;
+  }
+
+  .finale-patriotic-title {
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .finale-main-text {
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    line-height: 1.2;
+  }
+
+  .finale-celebration-text {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: -0.5px;
+    font-weight: 900;
+  }
+
+  .finale-date-text {
+    font-size: clamp(2.8rem, 10vw, 5.5rem);
+    line-height: 0.9;
+    letter-spacing: -1px;
+  }
+
+  .finale-independence-subtitle {
+    font-size: clamp(0.9rem, 3vw, 1.5rem);
+    margin: 1rem 0 0.3rem 0;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .finale-unity-message {
+    font-size: clamp(1.1rem, 4vw, 1.8rem);
+    letter-spacing: 0.5px;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .finale-heritage-message {
+    font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .finale-patriotic-message {
+    gap: 0.6rem;
+    margin-top: 0.8rem;
+  }
+  
+  /* Hero image container responsive adjustments */
+  .finale-hero-img-container {
+    width: 70%;
+    top: 55%;
+  }
+  
+  .finale-hero-img {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .finale-hero-content {
+    top: 45%;
+  }
+
+  .finale-header {
+    width: calc(100% - 1.5rem);
+    padding: 0.8rem;
+  }
+
+  .finale-patriotic-title {
+    gap: 0.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .finale-main-text {
+    font-size: clamp(1.1rem, 4vw, 1.8rem);
+    line-height: 1.3;
+  }
+
+  .finale-celebration-text {
+    font-size: clamp(1.6rem, 6vw, 2.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.3px;
+    font-weight: 900;
+  }
+
+  .finale-date-text {
+    font-size: clamp(2.2rem, 8vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.8px;
+  }
+
+  .finale-independence-subtitle {
+    font-size: clamp(0.8rem, 2.5vw, 1.3rem);
+    margin: 0.8rem 0 0.2rem 0;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .finale-unity-message {
+    font-size: clamp(1rem, 3.5vw, 1.5rem);
+    letter-spacing: 0.3px;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .finale-heritage-message {
+    font-size: clamp(0.7rem, 2vw, 1.1rem);
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .finale-patriotic-message {
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+  }
+  
+  /* Hero image container responsive adjustments for small mobile */
+  .finale-hero-img-container {
+    width: 80%;
+    top: 60%;
+  }
+  
+  .finale-hero-img {
+    min-height: 180px;
+  }
+}

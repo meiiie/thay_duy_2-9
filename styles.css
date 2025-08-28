@@ -1,0 +1,1713 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS Variables for consistent theming */
+:root {
+  --white-clean: #ffffff;
+  --red-vietnam: #D20000;
+  --red-light: #B71C1C;
+  --yellow-vietnam: #FFD700;
+  --yellow-light: #FFA500;
+  --gold-accent: #FF8C00;
+  --blue-sky: #1E90FF;
+  --dark-text: #1a0000;
+}
+
+body {
+  font-family: "Be Vietnam Pro", sans-serif;
+  background: radial-gradient(ellipse at center, #1a0000 0%, #0a0a0a 70%);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Khóa scroll khi animation đang chạy */
+body.scroll-locked {
+  overflow: hidden;
+}
+
+/* Hero section visible but scroll locked */
+body.hero-visible {
+  overflow: hidden;
+}
+
+/* Scroll unlocked - user can now scroll */
+body.scroll-unlocked {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Hero section visible but scroll locked */
+body.hero-visible {
+  overflow: hidden;
+}
+
+/* Scroll unlocked - user can now scroll */
+body.scroll-unlocked {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Smooth scroll cho body */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animated background effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 215, 0, 0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(210, 0, 0, 0.3), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 215, 0, 0.4), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(210, 0, 0, 0.2), transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: sparkle 20s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes sparkle {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-200px) rotate(360deg); }
+}
+
+/* Enhanced patriotic animations */
+@keyframes patrioticGlow {
+  0%, 100% { 
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+  }
+  50% { 
+    text-shadow: 0 0 40px rgba(255, 215, 0, 1);
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1));
+  }
+}
+
+@keyframes starPulse {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+  }
+  50% { 
+    transform: scale(1.1) rotate(180deg);
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 1));
+  }
+}
+
+@keyframes fabricTexture {
+  0% { 
+    background-position: 0% 0%;
+    opacity: 0.8;
+  }
+  50% { 
+    background-position: 50% 50%;
+    opacity: 1;
+  }
+  100% { 
+    background-position: 100% 100%;
+    opacity: 0.8;
+  }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 4.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  padding: 0.2em 0;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.intro-title h1 {
+  font-size: 3.5rem;
+  line-height: 1.4;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.outro-title h1 {
+  font-size: 5rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.outro-title .char span {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+p {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.preloader,
+.split-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100svh;
+}
+
+.preloader,
+.split-overlay {
+  background: linear-gradient(135deg, #D20000 0%, #8B0000 100%);
+  color: #fff;
+}
+
+.preloader {
+  z-index: 2;
+}
+
+.split-overlay {
+  z-index: 1;
+}
+
+.intro-title {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  max-width: 1200px;
+  text-align: center;
+  /* Đảm bảo chữ không bị clip */
+  padding: 1rem;
+  z-index: 25;
+  /* Tránh overlap */
+  white-space: normal;
+  overflow: visible;
+}
+
+.outro-title {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Cập nhật vị trí cho ngày tháng */
+  z-index: 25;
+  padding: 1rem;
+  /* Tránh overlap */
+  white-space: nowrap;
+  overflow: visible;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  clip-path: polygon(0 48%, 0 48%, 0 52%, 0 52%);
+  z-index: 2;
+}
+
+.container .hero-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* Nav styles */
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 15;
+}
+
+nav p {
+  color: #FFD700;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+nav p#logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: rgba(210, 0, 0, 0.8);
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  border: 2px solid #FFD700;
+}
+
+/* Footer styles */
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 15;
+}
+
+footer p {
+  color: #FFD700;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+footer .scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #FFD700;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Removed old nav and footer styles - now handled by header-footer.css */
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border: 3px solid #D20000;
+  border-radius: 25px;
+  box-shadow: 0 25px 50px rgba(210, 0, 0, 0.4);
+  clip-path: polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%);
+  /* Hero section styling */
+  backdrop-filter: blur(10px);
+  z-index: 15;
+}
+
+.card:hover {
+  transform: translate(-50%, -50%) scale(1.02);
+  box-shadow: 
+    0 30px 60px rgba(210, 0, 0, 0.5),
+    0 0 40px rgba(255, 215, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.card h1 {
+  text-align: center;
+  width: 100%;
+  font-size: 2.8rem;
+  color: #D20000;
+  font-weight: 800;
+  text-shadow: 
+    2px 2px 4px rgba(0,0,0,0.2),
+    0 0 20px rgba(210, 0, 0, 0.3);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+}
+
+.card:hover h1 {
+  text-shadow: 
+    2px 2px 4px rgba(0,0,0,0.3),
+    0 0 30px rgba(210, 0, 0, 0.5);
+}
+
+.card .card-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #8B0000;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.card .char span {
+  position: relative;
+  display: inline-block;
+  transform: translateY(100%);
+  will-change: transform;
+  /* Tối ưu hóa rendering performance */
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.intro-title .char,
+.outro-title .char,
+.card .char {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+  /* Tăng height để chứa dấu tiếng Việt */
+  height: auto;
+  min-height: 1.8em;
+  vertical-align: baseline;
+  /* Đảm bảo không bị clip và overlap */
+  margin: 0.1em 0.02em;
+  line-height: 1.4;
+}
+
+.intro-title .char,
+.outro-title .char {
+  margin: 0.1em 0.02em;
+  /* Đảm bảo có đủ không gian cho dấu */
+  padding: 0.2em 0;
+  /* Sửa lỗi chữ bị mất và overlap */
+  min-height: 1.6em;
+  overflow: visible;
+  line-height: 1.3;
+}
+
+.intro-title .char span,
+.outro-title .char span,
+.tag .word {
+  position: relative;
+  display: inline-block;
+  transform: translateY(-100%);
+  will-change: transform;
+  /* Đảm bảo word có đủ không gian */
+  padding: 0.1em 0;
+  height: 1.4em;
+  overflow: visible;
+  /* Tối ưu hóa rendering performance */
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.intro-title .first-char {
+  transform-origin: top left;
+}
+
+/* Star Icon Styling */
+.star-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0) rotate(-180deg);
+  will-change: transform, opacity;
+}
+
+.star-icon svg {
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+  animation: starGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes starGlow {
+  0% {
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+    transform: scale(1);
+  }
+  100% {
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 1));
+    transform: scale(1.05);
+  }
+}
+
+@keyframes impactGlow {
+  0% {
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+    transform: scale(1.2);
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 1));
+    transform: scale(1.3);
+  }
+  100% {
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+    transform: scale(1);
+  }
+}
+
+/* Section Headers Styling - Now as separate sections */
+.section-header {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  background: linear-gradient(135deg, rgba(139, 0, 0, 0.9) 0%, rgba(220, 20, 60, 0.8) 100%);
+  position: relative;
+  overflow: hidden;
+  /* Đảm bảo mỗi header là một section riêng biệt */
+  display: block;
+  width: 100%;
+  min-height: auto;
+  /* Không ảnh hưởng đến layout của các section khác */
+  margin: 0;
+  border: none;
+}
+
+.section-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,215,0,0.3)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+  opacity: 0.1;
+  animation: starFloat 20s linear infinite;
+}
+
+@keyframes starFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-100px); }
+}
+
+.section-title-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.section-main-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: #FFD700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin: 0 0 1rem;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.5); }
+  100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.8); }
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: #FFFFFF;
+  margin: 0 0 2rem;
+  font-weight: 400;
+  opacity: 0.9;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.section-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.decoration-line {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #FFD700, transparent);
+  border-radius: 2px;
+  animation: lineGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes lineGlow {
+  0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+  100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+}
+
+.decoration-star {
+  animation: starRotate 4s linear infinite;
+}
+
+@keyframes starRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Specific section header variations */
+.work-header {
+  background: linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(178, 34, 34, 0.9) 100%);
+}
+
+.history-header {
+  background: linear-gradient(135deg, rgba(220, 20, 60, 0.9) 0%, rgba(139, 0, 0, 0.95) 100%);
+}
+
+.timeline-header {
+  background: linear-gradient(135deg, rgba(178, 34, 34, 0.9) 0%, rgba(220, 20, 60, 0.9) 100%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-header {
+    padding: 3rem 1rem 1.5rem;
+  }
+  
+  .section-main-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    letter-spacing: 1px;
+  }
+  
+  .section-subtitle {
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+  }
+  
+  .decoration-line {
+    width: 60px;
+  }
+}
+
+/* Section header entrance animations */
+.section-header {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: sectionHeaderEntrance 1s ease-out forwards;
+}
+
+@keyframes sectionHeaderEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-main-title {
+  opacity: 0;
+  animation: titleEntrance 1.2s ease-out 0.3s forwards;
+}
+
+.section-subtitle {
+  opacity: 0;
+  animation: subtitleEntrance 1.2s ease-out 0.6s forwards;
+}
+
+.section-decoration {
+  opacity: 0;
+  animation: decorationEntrance 1.2s ease-out 0.9s forwards;
+}
+
+@keyframes titleEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes subtitleEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+}
+
+@keyframes decorationEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Scroll Indicator Styling */
+.scroll-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+/* Hero Section Scroll Lock Indicator */
+body.hero-visible .scroll-indicator {
+  animation: heroPulse 2s ease-in-out infinite;
+  color: #FFD700;
+  opacity: 1;
+}
+
+@keyframes heroPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.scroll-indicator:hover {
+  transform: translateY(-2px);
+  color: #FFD700;
+}
+
+.scroll-indicator svg {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Hero Section Scroll Lock Indicator */
+body.hero-visible .scroll-indicator {
+  animation: heroPulse 2s ease-in-out infinite;
+  color: #FFD700;
+  opacity: 1;
+}
+
+@keyframes heroPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Work Section - 3D Animation (Three.js) */
+.work {
+  position: relative;
+  min-height: 100vh; /* Fixed height for proper pinning */
+  background: linear-gradient(135deg, #1a0000 0%, #0a0a0a 100%);
+  overflow: hidden;
+  opacity: 1;
+  pointer-events: auto;
+  display: block;
+  width: 100vw;
+  z-index: 2;
+}
+
+.work-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Historical Journey Section - Timeline */
+.historical-journey {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, 
+    rgba(210, 0, 0, 0.05) 0%, 
+    rgba(139, 0, 0, 0.02) 50%, 
+    rgba(210, 0, 0, 0.05) 100%);
+  padding: 120px 0 80px;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.work-intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.work-intro h2 {
+  font-size: 4rem;
+  color: #FFD700;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.work-intro p {
+  font-size: 1.5rem;
+  color: rgba(255, 215, 0, 0.8);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.work-content {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Canvas Styling - Scoped to work-section to avoid v2 conflicts */
+.work-section .work-content canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.work-section #grid-canvas {
+  z-index: 0;
+}
+
+.work-section #letters-canvas {
+  z-index: 1;
+}
+
+.work-section #cards-canvas {
+  z-index: 10;
+}
+
+/* 3D Text Container - Scoped to work-section */
+.work-section .text-container-3d {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  perspective: 2500px;
+  perspective-origin: center;
+}
+
+/* Vietnam National Day themed 3D letters - Scoped to work-section */
+.work-section .letter-3d {
+  position: absolute;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 12rem;
+  font-weight: 900;
+  /* Vietnam flag colors - Gold for VIỆT NAM */
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Enhanced glow effect */
+  text-shadow: 
+    0 0 20px rgba(255, 215, 0, 0.8),
+    0 0 40px rgba(255, 215, 0, 0.6),
+    0 0 60px rgba(255, 215, 0, 0.4),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+  opacity: 1;
+  z-index: 2;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+  text-transform: uppercase;
+  /* Fallback for browsers that don't support background-clip */
+  color: #FFD700;
+  /* Animation for letters */
+  animation: letterGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes letterGlow {
+  0% {
+    text-shadow: 
+      0 0 20px rgba(255, 215, 0, 0.8),
+      0 0 40px rgba(255, 215, 0, 0.6),
+      2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  100% {
+    text-shadow: 
+      0 0 30px rgba(255, 215, 0, 1),
+      0 0 60px rgba(255, 215, 0, 0.8),
+      0 0 90px rgba(255, 215, 0, 0.6),
+      2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 1000px) {
+  .work-intro h2 {
+    font-size: 2.5rem;
+  }
+  
+  .work-intro p {
+    font-size: 1.2rem;
+  }
+  
+  .letter-3d {
+    font-size: 8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .work-intro h2 {
+    font-size: 2rem;
+  }
+  
+  .work-intro p {
+    font-size: 1rem;
+  }
+  
+  .letter-3d {
+    font-size: 6rem;
+  }
+}
+
+/* Section 2 - Historical Gallery (Vietnam Red Background) */
+.work {
+  position: relative;
+  /* Pure Vietnam red background */
+  background: linear-gradient(135deg, #D20000 0%, #B71C1C 100%);
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  /* Performance optimizations */
+  will-change: auto;
+  contain: layout style paint;
+}
+
+/* Canvas elements for .work section */
+.work canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.work #letters-canvas {
+  z-index: 1;
+}
+
+.work #cards-canvas {
+  z-index: 10;
+}
+
+/* Text container for 3D letters */
+.work .text-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+  perspective: 2500px;
+  perspective-origin: center;
+}
+
+/* 02/09 National Day numbers (Optimized) */
+.work .letter {
+  position: absolute;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 14rem; /* Larger for 4 numbers */
+  font-weight: 900;
+  /* Simple gold color - easier on eyes */
+  color: #FFD700;
+  /* Simple text shadow for depth */
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(255, 215, 0, 0.3);
+  opacity: 1;
+  z-index: 2;
+  transform-origin: center;
+  will-change: transform;
+  /* Remove heavy 3D effects for performance */
+  backface-visibility: hidden;
+}
+
+/* Hide space character */
+.work .letter:empty {
+  display: none;
+}
+
+/* Interactive Historical Gallery - Tooltips & Modals removed as requested */
+.work canvas {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.work canvas:hover {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Image Overlay System removed as requested */
+
+/* Mobile Responsive for .work section */
+@media (max-width: 1000px) {
+  .work .letter {
+    font-size: 10rem;
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .work .letter {
+    font-size: 7rem;
+  }
+  
+  .modal-content {
+    padding: 1rem;
+    max-width: 95%;
+  }
+  
+  .modal-title {
+    font-size: 1.3rem;
+  }
+  
+  .modal-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 2rem;
+    line-height: 1.5;
+  }
+
+  .intro-title {
+    padding: 1rem 0.5rem;
+    top: 58%;
+    width: 90%;
+  }
+
+  .intro-title h1 {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    white-space: normal;
+    word-break: break-word;
+    max-width: 100%;
+  }
+
+  .outro-title {
+    left: 50%;
+    top: 35%;
+    gap: 0.6rem;
+  }
+
+  .outro-title h1 {
+    font-size: 2.2rem;
+    line-height: 1.3;
+  }
+
+  .star-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .card {
+    width: 85%;
+    height: 50%;
+    padding: 1rem;
+  }
+
+  .card h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+  }
+
+  .card .card-subtitle {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .intro-title .char,
+  .outro-title .char {
+    margin: 0.1em 0.02em;
+    height: 1.6em;
+    min-height: 1.6em;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+  .intro-title h1 {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    padding: 0.3rem 0;
+  }
+
+  .outro-title h1 {
+    font-size: 1.8rem;
+  }
+
+  .intro-title {
+    top: 62%;
+    width: 95%;
+    padding: 0.5rem;
+  }
+
+  .outro-title {
+    top: 32%;
+    gap: 0.5rem;
+  }
+
+  .card {
+    width: 90%;
+    height: 45%;
+  }
+
+  .card h1 {
+    font-size: 1.4rem;
+  }
+
+  .card .card-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* History Cards - Sử dụng class riêng để tránh conflict */
+.history-gallery .history-card {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--white-clean);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.history-gallery .history-card .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transform-origin: 50% 100%;
+  will-change: transform;
+  text-align: center;
+  color: var(--white-clean);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  border-radius: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+}
+
+/* Enhanced card backgrounds with better gradients and effects */
+#history-card-1 .card-inner {
+  background: linear-gradient(135deg, var(--red-vietnam) 0%, var(--red-light) 50%, var(--yellow-vietnam) 100%);
+  position: relative;
+}
+
+#history-card-1 .card-inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(255, 205, 0, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(218, 2, 14, 0.2) 0%, transparent 50%);
+  z-index: 0;
+}
+
+#history-card-2 .card-inner {
+  background: linear-gradient(135deg, var(--yellow-vietnam) 0%, var(--gold-accent) 50%, var(--yellow-light) 100%);
+  position: relative;
+}
+
+.history-gallery .history-card:hover .card-inner {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 
+    0 30px 80px rgba(255, 205, 0, 0.4),
+    0 0 60px rgba(210, 0, 0, 0.3);
+}
+
+.history-gallery .history-card:hover .card-title h1 {
+  text-shadow: 0 0 40px rgba(255, 205, 0, 1), 4px 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* 🎪 SMOOTH BLUR EFFECT */
+.history-gallery .history-card .card-inner[style*="blur"] {
+  transition: filter 0.s ease-out;
+}
+
+/* ⚡ PERFORMANCE OPTIMIZATIONS */
+.history-gallery .history-card * {
+  will-change: auto; /* Reset sau khi animation xong */
+}
+
+#history-card-2 .card-inner > * {
+  position: relative;
+  z-index: 2;
+  color: var(--dark-text);
+  text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.8);
+}
+
+#history-card-3 .card-inner {
+  background: linear-gradient(135deg, var(--blue-sky) 0%, var(--dark-text) 50%, var(--red-vietnam) 100%);
+  position: relative;
+}
+
+#history-card-4 .card-inner {
+  background: linear-gradient(135deg, var(--red-vietnam) 0%, var(--gold-accent) 50%, var(--yellow-vietnam) 100%);
+  position: relative;
+}
+
+/* Improved background image cards with better overlays */
+#history-card-5 .card-inner,
+#history-card-6 .card-inner,
+#history-card-7 .card-inner,
+#history-card-8 .card-inner,
+#history-card-9 .card-inner,
+#history-card-10 .card-inner,
+#history-card-11 .card-inner,
+#history-card-12 .card-inner,
+#history-card-13 .card-inner,
+#history-card-14 .card-inner,
+#history-card-15 .card-inner {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+#history-card-5 .card-inner::before,
+#history-card-6 .card-inner::before,
+#history-card-7 .card-inner::before,
+#history-card-8 .card-inner::before,
+#history-card-9 .card-inner::before,
+#history-card-10 .card-inner::before,
+#history-card-11 .card-inner::before,
+#history-card-12 .card-inner::before,
+#history-card-13 .card-inner::before,
+#history-card-14 .card-inner::before,
+#history-card-15 .card-inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(218, 2, 14, 0.4) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(255, 205, 0, 0.4) 100%);
+  z-index: 1;
+}
+
+/* Background images for history cards */
+#history-card-5 .card-inner {
+  background-image: url("public/img1.jpg");
+}
+#history-card-6 .card-inner {
+  background-image: url("public/badinh.jpg");
+}
+#history-card-7 .card-inner {
+  background-image: url("public/an-mung-giai-phong.jpg");
+}
+#history-card-8 .card-inner {
+  background-image: url("public/dien-bien-phu.jpg");
+}
+#history-card-9 .card-inner {
+  background-image: url("public/phat-trien-kinh-te.jpg");
+}
+#history-card-10 .card-inner {
+  background-image: url("public/tuong-dai-liet-si.jpg");
+}
+#history-card-11 .card-inner {
+  background-image: url("public/155.jpg");
+}
+#history-card-12 .card-inner {
+  background-image: url("public/thanh-nien-khoi-nghiep.jpg");
+}
+#history-card-13 .card-inner {
+  background-image: url("public/122.jpg");
+}
+#history-card-14 .card-inner {
+  background-image: url("public/126.jpg");
+}
+
+#history-card-5 .card-inner > *,
+#history-card-6 .card-inner > *,
+#history-card-7 .card-inner > *,
+#history-card-8 .card-inner > *,
+#history-card-9 .card-inner > *,
+#history-card-10 .card-inner > *,
+#history-card-11 .card-inner > *,
+#history-card-12 .card-inner > *,
+#history-card-13 .card-inner > *,
+#history-card-14 .card-inner > *
+{
+  position: relative;
+  z-index: 2;
+  color: var(--white-clean);
+  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.9);
+}
+
+@keyframes finale-celebration {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0px) scale(1);
+    filter: drop-shadow(0 0 10px rgba(255, 205, 0, 0.8));
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px) scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(218, 2, 14, 0.8));
+  }
+}
+
+/* History card info styling */
+.history-gallery .history-card .card-info {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  width: auto;
+  padding: 1rem 2rem;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 205, 0, 0.3);
+  z-index: 5;
+  /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); */
+}
+
+.history-gallery .history-card .card-info p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  text-transform: none;
+}
+
+/* History card title styling */
+.history-gallery .history-card .card-title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  text-align: center;
+  width: 90%;
+}
+
+.history-gallery .history-card .card-title h1 {
+  font-size: 5rem;
+  padding: 0.2em 0;
+  color: #fff;
+  text-shadow: 
+    0 0 40px rgba(255, 205, 0, 0.8),
+    4px 4px 12px rgba(0, 0, 0, 0.9);
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+@keyframes title-glow {
+  from {
+    filter: drop-shadow(0 0 20px rgba(255, 205, 0, 0.6));
+    transform: scale(1);
+  }
+  to {
+    filter: drop-shadow(0 0 40px rgba(218, 2, 14, 0.8));
+    transform: scale(1.02);
+  }
+}
+
+/* History card description styling */
+.history-gallery .history-card .card-description {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 800px;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 24px;
+  border: 2px solid rgba(255, 205, 0, 0.3);
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(255, 205, 0, 0.15);
+  z-index: 4;
+}
+
+.history-gallery .history-card .card-description p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  color: #fff;
+  margin: 0;
+  font-weight: 400;
+  text-transform: none;
+}
+
+/* Hide card-img for background image cards */
+#history-card-5 .card-img,
+#history-card-6 .card-img,
+#history-card-7 .card-img,
+#history-card-8 .card-img,
+#history-card-9 .card-img,
+#history-card-10 .card-img,
+#history-card-11 .card-img,
+#history-card-12 .card-img,
+#history-card-13 .card-img,
+#history-card-14 .card-img,
+#history-card-15 .card-img {
+  display: none;
+}
+
+/* Enhanced card-img styling for visible cards */
+.history-gallery .history-card .card-img {
+  /* position: absolute; */
+  bottom: 3rem;
+  right: 3rem;
+  width: 300px;
+  height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(255, 205, 0, 0.6), 0 0 60px rgba(211, 157, 159, 0.4);
+  animation: image-glow 3s ease-in-out infinite alternate;
+  z-index: 3;
+}
+
+@keyframes image-glow {
+  from {
+    box-shadow: 0 0 30px rgba(255, 205, 0, 0.6), 0 0 60px rgba(218, 2, 14, 0.4);
+  }
+  to {
+    box-shadow: 0 0 50px rgba(218, 2, 14, 0.8), 0 0 80px rgba(255, 205, 0, 0.6);
+  }
+}
+
+.history-gallery .history-card .card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(1.1) contrast(1.2) saturate(1.3);
+  transition: all 0.3s ease;
+}
+
+.history-gallery .history-card .card-img:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.2) contrast(1.3) saturate(1.5);
+}
+
+/* ===== RESPONSIVE DESIGN FOR HISTORY SECTION ===== */
+
+/* Tablet devices (768px - 1024px) */
+@media (max-width: 1024px) {
+  .history-gallery .history-card .card-title {
+    top: 25%;
+    width: 95%;
+  }
+  
+  .history-gallery .history-card .card-title h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+  }
+  
+  .history-gallery .history-card .card-description {
+    top: 20%;
+    width: 90%;
+    padding: 1.2rem;
+  }
+  
+  .history-gallery .history-card .card-description p {
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+  
+  .history-gallery .history-card .card-info {
+    top: 1.5rem;
+    left: 1.5rem;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .history-gallery .history-card .card-info p {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile devices (576px - 767px) */
+@media (max-width: 767px) {
+  .history-gallery .history-card .card-title {
+    top: 20%;
+    width: 95%;
+    padding: 0 1rem;
+  }
+  
+  .history-gallery .history-card .card-title h1 {
+    font-size: 2.8rem;
+    line-height: 1.3;
+    padding: 0.1em 0;
+  }
+  
+  .history-gallery .history-card .card-description {
+    top: 15%;
+    width: 92%;
+    padding: 1rem;
+    border-radius: 20px;
+  }
+  
+  .history-gallery .history-card .card-description p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
+  .history-gallery .history-card .card-info {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+  }
+  
+  .history-gallery .history-card .card-info p {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+}
+
+/* Small mobile devices (less than 576px) */
+@media (max-width: 575px) {
+  .history-gallery .history-card .card-title {
+    top: 18%;
+    width: 96%;
+    padding: 0 0.8rem;
+  }
+  
+  .history-gallery .history-card .card-title h1 {
+    font-size: 2.2rem;
+    line-height: 1.4;
+    padding: 0.1em 0;
+  }
+  
+  .history-gallery .history-card .card-description {
+    top: 35%;
+    width: 94%;
+    padding: 0.8rem;
+    border-radius: 18px;
+  }
+  
+  .history-gallery .history-card .card-description p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .history-gallery .history-card .card-info {
+    top: 0.8rem;
+    left: 0.8rem;
+    padding: 0.5rem 1rem;
+    border-radius: 18px;
+  }
+  
+  .history-gallery .history-card .card-info p {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+}
+
+/* Extra small mobile devices (less than 400px) */
+@media (max-width: 399px) {
+  .history-gallery .history-card .card-title {
+    top: 16%;
+    width: 97%;
+    padding: 0 0.6rem;
+  }
+  
+  .history-gallery .history-card .card-title h1 {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    padding: 0.1em 0;
+  }
+  
+  .history-gallery .history-card .card-description {
+    top: 32%;
+    width: 95%;
+    padding: 0.7rem;
+    border-radius: 16px;
+  }
+  
+  .history-gallery .history-card .card-description p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .history-gallery .history-card .card-info {
+    top: 0.6rem;
+    left: 0.6rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 16px;
+  }
+  
+  .history-gallery .history-card .card-info p {
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+}
+
+/* Landscape orientation on mobile devices */
+@media (max-width: 767px) and (orientation: landscape) {
+  .history-gallery .history-card .card-title {
+    top: 22%;
+  }
+  
+  .history-gallery .history-card .card-title h1 {
+    font-size: 2.5rem;
+  }
+  
+  .history-gallery .history-card .card-description {
+    top: 40%;
+  }
+  
+  .history-gallery .history-card .card-description p {
+    font-size: 1.1rem;
+  }
+}
+
+/* High DPI displays optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .history-gallery .history-card .card-title h1 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .history-gallery .history-card .card-description p {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ===== CUSTOM SCROLLBAR - VIỆT NAM THEME ===== */
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(135deg, #1a0000 0%, #0a0a0a 100%);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.5),
+    inset 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
+  box-shadow: 
+    0 0 15px rgba(255, 215, 0, 0.8),
+    inset 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%);
+  box-shadow: 
+    0 0 20px rgba(255, 215, 0, 1),
+    inset 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+::-webkit-scrollbar-corner {
+  background: linear-gradient(135deg, #1a0000 0%, #0a0a0a 100%);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FFD700 #1a0000;
+}
+
+/* Custom scrollbar for specific elements */
+.history-gallery::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.history-gallery::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-radius: 4px;
+}
+
+/* Smooth scrollbar animation */
+::-webkit-scrollbar-thumb {
+  transition: all 0.3s ease;
+}
+
+/* Mobile scrollbar optimization */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-width: 1px;
+  }
+}
+
