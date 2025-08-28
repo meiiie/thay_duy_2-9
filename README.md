@@ -20,28 +20,28 @@
 
 ---
 
-## Mục Lục
+## 📋 Mục Lục
 
-- [Giới Thiệu](#-giới-thiệu)
-- [Tính Năng](#-tính-năng)
-- [Công Nghệ](#️-công-nghệ)
-- [Responsive Design](#-responsive-design)
-- [SEO Chuẩn 2025](#-seo-chuẩn-2025)
-- [Cấu Trúc Dự Án](#-cấu-trúc-dự-án)
-- [Cài Đặt & Chạy](#-cài-đặt--chạy)
-- [Triển Khai](#-triển-khai)
-- [Hiệu Suất](#-hiệu-suất)
-- [Đóng Góp](#-đóng-góp)
-- [Giấy Phép](#-giấy-phép)
-- [Tác Giả](#-tác-giả)
+- [🌟 Giới Thiệu](#-giới-thiệu)
+- [🚀 Tính Năng](#-tính-năng)
+- [🛠️ Công Nghệ](#️-công-nghệ)
+- [📱 Responsive Design](#-responsive-design)
+- [🔍 SEO Chuẩn 2025](#-seo-chuẩn-2025)
+- [📁 Cấu Trúc Dự Án](#-cấu-trúc-dự-án)
+- [⚡ Cài Đặt & Chạy](#-cài-đặt--chạy)
+- [🌐 Triển Khai](#-triển-khai)
+- [📊 Hiệu Suất](#-hiệu-suất)
+- [🤝 Đóng Góp](#-đóng-góp)
+- [📄 Giấy Phép](#-giấy-phép)
+- [👨‍💻 Tác Giả](#-tác-giả)
 
 ---
 
-## Giới Thiệu
+## 🌟 Giới Thiệu
 
 **Quốc Khánh 2/9 - Việt Nam Muôn Năm** là một dự án web đặc biệt được thiết kế để kỷ niệm **80 năm độc lập dân tộc Việt Nam** (1945-2025). Dự án này không chỉ là một website thông thường mà còn là một **tác phẩm nghệ thuật số** kết hợp giữa lịch sử hào hùng và công nghệ hiện đại.
 
-### Mục Tiêu
+### 🎯 Mục Tiêu
 - **Tôn vinh lịch sử** Cách Mạng Tháng Tám và Tuyên Ngôn Độc Lập
 - **Giáo dục thế hệ trẻ** về tinh thần yêu nước và độc lập dân tộc
 - **Tạo trải nghiệm tương tác** độc đáo với công nghệ web hiện đại
@@ -49,33 +49,33 @@
 
 ---
 
-## Tính Năng
+## 🚀 Tính Năng
 
-### **Hero Section**
+### ✨ **Hero Section**
 - **Animation 3D** với Three.js
 - **Parallax scrolling** mượt mà
 - **Preloader** chuyên nghiệp
 - **Responsive design** cho mọi thiết bị
 
-### **History Section**
+### 📚 **History Section**
 - **15 timeline cards** với nội dung lịch sử phong phú
 - **GSAP animations** mượt mà và ấn tượng
 - **Hover effects** tương tác
 - **Responsive layout** tối ưu cho mobile
 
-### **Timeline Section**
+### ⏰ **Timeline Section**
 - **Scroll-triggered animations** với GSAP ScrollTrigger
 - **Background parallax** ấn tượng
 - **Text highlighting** với backdrop-filter
 - **Mobile-first design** không có gap đen
 
-### **Finale Section**
+### 🎊 **Finale Section**
 - **Dashboard visualization** thống kê 80 năm
 - **3D canvas effects** với Three.js
 - **Responsive image scaling** cho mobile
 - **Vietnamese font optimization**
 
-### **UI/UX Features**
+### 🎨 **UI/UX Features**
 - **Custom scrollbar** với theme Việt Nam
 - **Smooth scrolling** với Lenis
 - **Loading animations** chuyên nghiệp
@@ -83,7 +83,7 @@
 
 ---
 
-## Công Nghệ
+## 🛠️ Công Nghệ
 
 ### **Frontend Core**
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -106,7 +106,7 @@
 
 ---
 
-### Responsive Design
+## 📱 Responsive Design
 
 ### **Breakpoints**
 - **Desktop**: ≥1024px - Layout đầy đủ với animations phức tạp
@@ -122,23 +122,23 @@
 
 ---
 
-##  SEO Chuẩn 2025
+## 🔍 SEO Chuẩn 2025
 
-### **Technical SEO** 
+### **Technical SEO** ✅
 - [x] **robots.txt** và **sitemap.xml** chuẩn
 - [x] **Meta tags** đầy đủ (Open Graph, Twitter Cards)
 - [x] **Structured Data** (JSON-LD) cho WebSite, Organization, Event
 - [x] **Core Web Vitals** tối ưu (LCP, CLS, INP)
 - [x] **HTTPS** và **Gzip compression**
 
-### **Content SEO** 
+### **Content SEO** ✅
 - [x] **Title tags** 45-60 ký tự
 - [x] **Meta descriptions** hấp dẫn
 - [x] **Heading structure** H1, H2, H3 rõ ràng
 - [x] **Alt text** cho tất cả images
 - [x] **Internal linking** strategy
 
-### **Performance SEO** 
+### **Performance SEO** ✅
 - [x] **Image optimization** với width/height attributes
 - [x] **Lazy loading** cho non-critical images
 - [x] **Preload** critical resources
@@ -151,39 +151,39 @@
 
 ```
 thay_duy_2-9/
-├── index.html                 # Main HTML file
-├── styles.css                 # Global CSS styles
-├── header-footer.css          # Header & Footer styles
-├── timeline-section.css       # Timeline section styles
-├── finale-section.css        # Finale section styles
-├── script.js                 # Main JavaScript logic
-├── header-footer-module.js   # Header/Footer module
-├── timeline-section.js        # Timeline animations
-├── finale-section.js         # Finale section logic
-├── work-section.js           # Work section logic
+├── 📄 index.html                 # Main HTML file
+├── 🎨 styles.css                 # Global CSS styles
+├── 📱 header-footer.css          # Header & Footer styles
+├── ⏰ timeline-section.css       # Timeline section styles
+├── �� finale-section.css        # Finale section styles
+├── 🚀 script.js                 # Main JavaScript logic
+├── 📱 header-footer-module.js   # Header/Footer module
+├── ⏰ timeline-section.js        # Timeline animations
+├── 🎊 finale-section.js         # Finale section logic
+├── 🔧 work-section.js           # Work section logic
 ├── 📁 public/                   # Public assets
-│   ├── robots.txt            # Search engine directives
-│   ├── sitemap.xml          # Main sitemap
-│   ├── image-sitemap.xml    # Image sitemap
-│   ├── manifest.json        # PWA manifest
-│   ├── .htaccess            # Server configuration
-│   ├── 404.html             # Custom 404 page
-│   ├── 500.html             # Custom 500 page
-│   ├── timeline-images/     # Timeline background images
-│   ├── cobay2/             # Flag animation images
-│   ├── viet-nam-icon/      # Favicon & app icons
-│   └── anhHong/            # Additional images
+│   ├── 📄 robots.txt            # Search engine directives
+│   ├── 📄 sitemap.xml          # Main sitemap
+│   ├── 📄 image-sitemap.xml    # Image sitemap
+│   ├── 📄 manifest.json        # PWA manifest
+│   ├── 📄 .htaccess            # Server configuration
+│   ├── 📄 404.html             # Custom 404 page
+│   ├── 📄 500.html             # Custom 500 page
+│   ├── 🖼️ timeline-images/     # Timeline background images
+│   ├── 🖼️ cobay2/             # Flag animation images
+│   ├── 🖼️ viet-nam-icon/      # Favicon & app icons
+│   └── 🖼️ anhHong/            # Additional images
 ├── 📁 assets/                   # Asset files
 ├── 📁 node_modules/             # Dependencies (gitignored)
-├── package.json              # Project dependencies
-├── vite.config.js            # Vite configuration
-├── .gitignore                # Git ignore rules
-└── README.md                 # This file
+├── 📄 package.json              # Project dependencies
+├── 📄 vite.config.js            # Vite configuration
+├── 📄 .gitignore                # Git ignore rules
+└── 📄 README.md                 # This file
 ```
 
 ---
 
-## Cài Đặt & Chạy
+## ⚡ Cài Đặt & Chạy
 
 ### **Yêu Cầu Hệ Thống**
 - **Node.js** ≥16.0.0
@@ -227,7 +227,7 @@ pnpm preview
 
 ---
 
-## Triển Khai
+## 🌐 Triển Khai
 
 ### **Deploy lên Hosting**
 1. **Build project**: `npm run build`
@@ -250,20 +250,20 @@ pnpm deploy
 
 ---
 
-## Hiệu Suất
+## 📊 Hiệu Suất
 
-### **Core Web Vitals** 
-- **LCP (Largest Contentful Paint)**: < 2.5s 
-- **CLS (Cumulative Layout Shift)**: < 0.1 
-- **INP (Interaction to Next Paint)**: < 200ms 
+### **Core Web Vitals** 🎯
+- **LCP (Largest Contentful Paint)**: < 2.5s ✅
+- **CLS (Cumulative Layout Shift)**: < 0.1 ✅
+- **INP (Interaction to Next Paint)**: < 200ms ✅
 
-### **Performance Metrics** 
+### **Performance Metrics** 📈
 - **First Paint**: ~800ms
 - **First Contentful Paint**: ~1.2s
 - **Time to Interactive**: ~2.8s
 - **Bundle Size**: < 500KB (gzipped)
 
-### **Optimization Techniques** 
+### **Optimization Techniques** ⚡
 - **Code splitting** với dynamic imports
 - **Tree shaking** để loại bỏ unused code
 - **Image optimization** với WebP format
@@ -272,7 +272,7 @@ pnpm deploy
 
 ---
 
-## Đóng Góp
+## 🤝 Đóng Góp
 
 Chúng tôi rất hoan nghênh mọi đóng góp để cải thiện dự án! 
 
@@ -297,12 +297,13 @@ Dự án này được phân phối dưới **MIT License**. Xem file [LICENSE](
 
 ---
 
-## Tác Giả
+## 👨‍💻 Tác Giả
 
 **🇻🇳 Việt Nam Muôn Năm**
 
 - **GitHub**: [@meiiie](https://github.com/meiiie)
 - **Website**: [https://quockhanh.holihu.online](https://quockhanh.holihu.online)
+- **Email**: [your-email@example.com]
 
 ---
 
