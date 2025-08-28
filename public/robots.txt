@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://quockhanh.holihu.online/sitemap.xml
+Sitemap: https://quockhanh.holihu.online/image-sitemap.xml
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
+
+# Allow important assets
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /timeline-images/
+Allow: /cobay2/
+Allow: /dashboard.png
+Allow: /viet-nam-icon/

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://quockhanh.holihu.online/</loc>
+    <image:image>
+      <image:loc>https://quockhanh.holihu.online/hero-img.jpg</image:loc>
+      <image:title>Quốc Khánh Việt Nam - 80 Năm Độc Lập</image:title>
+      <image:caption>Hình ảnh kỷ niệm Quốc Khánh 2/9/1945 - 2/9/2025</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://quockhanh.holihu.online/dashboard.png</image:loc>
+      <image:title>Dashboard Quốc Khánh Việt Nam</image:title>
+      <image:caption>Thống kê 80 năm độc lập dân tộc</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://quockhanh.holihu.online/#timeline-section</loc>
+    <image:image>
+      <image:loc>https://quockhanh.holihu.online/timeline-images/img_1.jpg</image:loc>
+      <image:title>Cách Mạng Tháng Tám 1945</image:title>
+      <image:caption>Khởi nghĩa giành chính quyền trên toàn quốc</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://quockhanh.holihu.online/timeline-images/img_2.jpg</image:loc>
+      <image:title>Tuyên Ngôn Độc Lập 2/9/1945</image:title>
+      <image:caption>Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập</image:caption>
+    </image:image>
+  </url>
+</urlset>

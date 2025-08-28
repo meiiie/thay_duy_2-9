@@ -1,0 +1,30 @@
+{
+  "name": "Quốc Khánh 2/9 - Việt Nam Muôn Năm",
+  "short_name": "Quốc Khánh VN",
+  "description": "Kỷ niệm 80 năm độc lập dân tộc Việt Nam",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#D20000",
+  "theme_color": "#FFD700",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/viet-nam-icon/icons8-vietnam-color-16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/viet-nam-icon/icons8-vietnam-color-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/viet-nam-icon/icons8-vietnam-color-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["education", "history", "culture"],
+  "lang": "vi",
+  "dir": "ltr"
+}
