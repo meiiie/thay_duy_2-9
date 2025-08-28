@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const tl = gsap.timeline({ defaults: { ease: "hop" } });
 
-    tl.to(
+  tl.to(
     ".preloader .intro-title .char span",
     {
       y: "0%",
