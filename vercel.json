@@ -1,0 +1,18 @@
+{
+    "routes": [
+      { "handle": "filesystem" },
+      {
+        "src": "/cobay2/(.*)\\.(jpg|jpeg|png|webp|avif)$",
+        "headers": { "Cache-Control": "public, max-age=31536000, immutable" }
+      },
+      {
+        "src": "/images/(.*)\\.(jpg|jpeg|png|webp|avif|svg)$",
+        "headers": { "Cache-Control": "public, max-age=31536000, immutable" }
+      },
+      {
+        "src": "/(.*)\\.(css|js)$",
+        "headers": { "Cache-Control": "public, max-age=31536000, immutable" }
+      }
+    ]
+  }
+  
