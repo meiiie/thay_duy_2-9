@@ -177,7 +177,7 @@ export function initTimelineSection() {
       }
       return true; // Enable pin spacing on larger screens
     },
-    scrub: window.lenis ? 1 : 0.5, // Smoother scrub when Lenis is available
+    scrub: window.lenis ? 0.8 : 0.4, // Giảm scrub để tránh lag
     onUpdate: (self) => {
       const progress = self.progress;
 

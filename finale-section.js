@@ -15,15 +15,21 @@ export function initFinaleSection() {
   } else {
     try {
       lenis = new Lenis({
-        duration: 1.2,
+        duration: 0.8, // Giảm duration để tránh lag
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         direction: 'vertical',
         gestureDirection: 'vertical',
         smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
+        mouseMultiplier: 0.8, // Giảm để tránh cuộn quá nhanh
+        smoothTouch: true, // Bật smooth touch cho mobile
+        touchMultiplier: 1.5, // Giảm để tránh cuộn quá nhanh
         infinite: false,
+        lerp: 0.1, // Thêm lerp để cuộn mượt hơn
+        wheelMultiplier: 0.8, // Giảm wheel speed
+        syncTouch: true, // Sync touch với wheel
+        syncTouchLerp: 0.1, // Touch lerp
+        touchInertiaMultiplier: 20, // Giảm inertia
+        smoothWheel: true, // Smooth wheel scrolling
       });
       window.lenis = lenis;
     } catch (error) {
@@ -129,7 +135,9 @@ export function initFinaleSection() {
       end: `+=${window.innerHeight * 10}px`,
       pin: true,
       pinSpacing: true,
-      scrub: lenis ? 1 : 0.5, // Smoother scrub when Lenis is available
+      scrub: lenis ? 0.8 : 0.4, // Giảm scrub để tránh lag
+      fastScrollEnd: true, // Tối ưu cho fast scrolling
+      preventOverlaps: true, // Tránh overlap với section khác
       onUpdate: (self) => {
         const progress = self.progress;
 
